@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SPEECH TO TEXT</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		div{
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			border: 2px solid black;
+			height: 300px;
+			width: 500px;
+            padding: 15px;
+            margin: auto;
+            box-shadow: 4px 6px;
+            border-radius: 8px;
+		}
+		body{
+			background: cornflowerblue;
+			width: 100%;
+			height: 100vh;
+			display: grid;
+			align-items: center;
+		}
+		textarea{
+			font-family: sans-serif;
+			padding: 15px 20px;
+			text-align: center;
+			border: 0;
+			font-size: 16px;
+			outline: 0;
+			color: red;
+			box-shadow: inset 2px 3px 5px grey;
+			border-radius: 8px;
+			margin-bottom: 20px;
+		}
+		button{
+			padding: 10px 20px;
+			border: 0;
+			outline: 0;
+			background: brown;
+			color: white;
+			border-radius: 8px;
+			cursor: pointer;
+		}
+		h1{
+			color: white;
+			font-family: sans-serif;
+			margin-bottom: 10px;
+			text-shadow: 2px 3px 5px grey;
+			letter-spacing: 2px;
+		}
+	</style>
+</head>
+<body>
+    <div>
+    	<h1>Speech To Text</h1>
+    	<textarea rows="5" cols="50" placeholder="Your voice message is here" id="convert_text"></textarea><br>
+    	<button id="click_to_convert">Click To Speak</button>
+    </div>
+</body>
+<script>
+	click_to_convert.addEventListener('click',function(){
+		var speech = true;
+		window.SpeechRecognition = window.webkitSpeechRecognition;
+		const recognition = new SpeechRecognition();
+		recognition.interimResults = true;
+
+		recognition.addEventListener('result',e=>{
+			const transcript = Array.from(e.results)
+			.map(result => result[0])
+			.map(result => result.transcript)
+
+			convert_text.innerHTML = transcript;
+		})
+		if(speech == true){
+			recognition.start();
+		}
+	})
+</script>
+</html>
