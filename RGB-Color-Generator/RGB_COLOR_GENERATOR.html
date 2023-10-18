@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RGB COLOR GENERATOR</title>
+	<style>
+		.container{
+			height: 380px;
+			width: 350px;
+			box-shadow: rgb(50,50,93,0.25) 0px 6px 12px -20px, rgba(0,0,0,0.3) 0px 3px 7px -3px ;
+			position: absolute;
+			top: 40%;
+			left: 40%;
+			border-radius: 10px;
+			transform: translate(-30%, -40%);
+			background: white;
+			overflow: hidden;
+			
+		}
+		.color_container{
+			height: 150px;
+			width: 300px;
+			background: #4671EA;
+			border-radius: 10px;
+			position: absolute;
+			top: 27%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+		.slider_container{
+			position: absolute;
+			height: 140px;
+			width: 100%;
+			top: 67%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			display: grid;
+			justify-content: center;
+			font-family: 'poppins';
+			font-size: 20px;
+		}
+		.slider{
+			width: 100%;
+			text-align: center;
+		}
+		input[type="range"]{
+			height: 15px;
+			width: 270px;
+			margin-top: 25px;
+			border-radius: 5px;
+			border: none;
+            font-size: 18px;
+		}
+		.rgb_value{
+            position: absolute;
+            left: 50%;
+            bottom: -5px;
+            color: white;
+            background: #4671EA;
+            padding: 5px 10px 5px 10px;
+            width: auto;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            border-radius: 5px;
+            font-family: 'poppins', sans-serif;
+
+		}
+		.heading{
+			margin-left: 270px;
+			margin-top: 20px;
+			font-size: 35px;
+			font-family: sans-serif;
+			font-weight: bold;
+			color: red;
+			border: 1px solid black;
+			width: 400px;
+			text-align: center;
+			box-shadow: 5px 8px #efefef;
+			border-radius: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div class="heading">RGB Colour Generator</div>
+   <div class="container">
+   	<div class="color_container"></div>
+
+   	<div class="slider_container">
+   		<div class="slider">R
+   			<input type="range" min="0"  max="255" value="0" id="red" onclick="colorchange()">
+   		</div>
+   		<div class="slider">G
+   			<input type="range" min="0"  max="255" value="0" id="green" onclick="colorchange()">
+   		</div>
+   		<div class="slider">B
+   			<input type="range" min="0"  max="255" value="0" id="blue" onclick="colorchange()">
+   		</div>
+   	</div>
+   	<span class="rgb_value">rgb(0, 0, 0)</span>
+   </div>
+   
+</body>
+<script>
+	function colorchange(){
+		var red = document.getElementById("red").value;
+		var green = document.getElementById("green").value;
+		var blue = document.getElementById("blue").value;
+		
+		document.querySelector(".color_container").style.backgroundColor = 'rgb('+red+','+green+','+blue+')';
+		document.querySelector(".rgb_value").innerHTML = "rgb("+red+","+green+","+blue+")";
+
+	}
+</script>
+</html>
