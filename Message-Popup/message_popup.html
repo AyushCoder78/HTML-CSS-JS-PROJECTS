@@ -1,0 +1,68 @@
+<html>
+<head>
+	<title>Message Animation</title>
+	<style>
+		*{
+			padding: 0px;
+			margin: 0px;
+			box-sizing: border-box;
+		}
+		body{
+			width: 100%;
+            height: 100vh;
+            background: #232323;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+		}
+		header{
+			width: 150px;
+			height: 150px;
+			background: #1abc9c;
+			margin-right: 15px;
+			color: white;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 40px;
+            -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%); clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+            border-radius: 50%;
+            animation: ayushman 3s ease-in-out infinite;
+		}
+		@keyframes ayushman{
+            0%{
+            	transform: scale(0);
+            }
+            50%{
+            	transform: scale(1) rotate(45deg);
+            }
+            100%{
+            	transform: scale(0);
+            }
+		}
+		#b{
+			background: red;
+			animation-delay: 0.5s;
+		}
+		#c{
+			background: green;
+			animation-delay: 1s;
+		}
+		#d{
+			background: orange;
+			animation-delay: 1.5s;
+		}
+		#e{
+			background: blue;
+			animation-delay: 2s;
+		}
+	</style>
+</head>
+<body>
+	<header id="a">H</header>
+	<header id="b">E</header>
+	<header id="c">L</header>
+	<header id="d">L</header>
+	<header id="e">O</header>
+</body>
+</html>
